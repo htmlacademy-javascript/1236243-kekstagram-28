@@ -25,3 +25,8 @@ function getNewString (str, minLength, addSymbols) {
 
   return addSymbols.slice(0, lengthStr % addSymbols.length) + addSymbols.repeat(lengthStr / addSymbols.length) + str;
 }
+
+isLength();
+isPalindrome();
+getNumber();
+getNewString();
