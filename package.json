@@ -11,6 +11,7 @@
     "url": "https://github.com/htmlacademy-javascript/1236243-kekstagram-28/issues"
   },
   "devDependencies": {
+    "@babel/core": "7.21.0",
     "browser-sync": "2.27.11",
     "eslint": "8.33.0",
     "eslint-config-htmlacademy": "9.0.0"
