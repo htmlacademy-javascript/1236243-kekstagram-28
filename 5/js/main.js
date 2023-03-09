@@ -1,3 +1,3 @@
-import './miniatures.js';
+import {miniPictures} from './miniatures.js';
 
-
+miniPictures()
