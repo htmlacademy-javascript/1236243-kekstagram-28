@@ -22,6 +22,5 @@ const miniPictures = function () {
   return allPictures;
 };
 
-miniPictures();
 
-export {allPictures};
+export {miniPictures};
