@@ -22,5 +22,4 @@ const miniPictures = function () {
   return allPictures;
 };
 
-
 export {miniPictures};
