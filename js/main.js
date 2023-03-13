@@ -1,3 +1,3 @@
-import { getFotos } from './data.js';
+import {miniPictures} from './miniatures.js';
 
-getFotos();
+miniPictures();
