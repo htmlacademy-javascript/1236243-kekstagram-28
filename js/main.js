@@ -1,3 +1,5 @@
-import {miniPictures} from './miniatures.js';
+import { renderMiniFoto } from'./miniatures.js';
+import { renderBigFoto } from './bigFoto.js';
 
-miniPictures();
+renderMiniFoto();
+renderBigFoto();

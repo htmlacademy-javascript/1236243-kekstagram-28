@@ -12,7 +12,7 @@ const createComment = () => {
   return comment;
 };
 
-const createArrayComments = () => Array.from({length: getRandomInteger(1, 5)}, () => createComment());
+const createArrayComments = () => Array.from({length: getRandomInteger(1, 15)}, () => createComment());
 
 const getDescriptionFoto = function (index) {
   const descriptionFoto = {
