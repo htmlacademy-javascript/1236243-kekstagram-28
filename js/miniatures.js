@@ -6,20 +6,23 @@ const pictureTemplate = document.querySelector('#picture') // находим ш�
   .content
   .querySelector('.picture');
 
-const miniPictures = function () {
-  const pictures = getFotos(); //массив фото
-  const picturesFragment = document.createDocumentFragment();
 
-  pictures.forEach(({url, likes, comments}) => {
-    const pictureElement = pictureTemplate.cloneNode(true);
-    pictureElement.querySelector('.picture__img').src = url;
-    pictureElement.querySelector('.picture__comments').textContent = comments.length;
-    pictureElement.querySelector('.picture__likes').textContent = likes;
-    picturesFragment.appendChild(pictureElement);
-  });
+const pictures = getFotos(); //массив фото
+const picturesFragment = document.createDocumentFragment();
 
+pictures.forEach((picture, index) => {
+  const pictureElement = pictureTemplate.cloneNode(true);
+  pictureElement.querySelector('.picture__img').src = picture.url;
+  pictureElement.querySelector('.picture__comments').textContent = picture.comments.length;
+  pictureElement.querySelector('.picture__likes').textContent = picture.likes;
+  pictureElement.dataset.index = index;
+  picturesFragment.appendChild(pictureElement);
+
+});
+
+
+const renderMiniFoto = function () {
   allPictures.appendChild(picturesFragment);
-  return allPictures;
 };
 
-export {miniPictures};
+export {renderMiniFoto, allPictures, pictures};

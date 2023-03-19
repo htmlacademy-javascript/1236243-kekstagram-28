@@ -18,7 +18,9 @@ const getRandomInteger = (a, b) => {
 //функция генератор случайного элемента массива
 const getRandomArrayElement = (array) => array[getRandomInteger(0, array.length - 1)];
 
-
 const generateCommentId = createIdGenerator();
 
-export {getRandomInteger, getRandomArrayElement, generateCommentId};
+const isEscKey = (evt) => evt.key === 'Escape';
+const isEnterKey = (evt) => evt.key === 'Enter';
+
+export {getRandomInteger, getRandomArrayElement, generateCommentId, isEscKey, isEnterKey};
