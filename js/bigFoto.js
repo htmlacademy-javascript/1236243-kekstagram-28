@@ -44,6 +44,7 @@ const renderBigFoto = function () {
       }
 
       countShow += COMMENTS_PER_PORTION
+      console.log(countShow)
       
       if (allComments.length <= countShow) {
         socialCommentMin.textContent = allComments.length
@@ -56,12 +57,14 @@ const renderBigFoto = function () {
           countShow += COMMENTS_PER_PORTION
           commentSlice = allComments.slice(0, countShow)
           createComments(commentSlice)
+          socialCommentMin.textContent = countShow
+          if(allComments.length <= countShow) {
+            socialCommentMin.textContent = allComments.length
+            socialCommentsButton.classList.add('hidden')
+          }
         })
 
       }
-
-      
-      
     }
   });
 };
@@ -83,6 +86,7 @@ function onClosePicture () {
   document.removeEventListener('keydown', onDocumentEscKeyDown);
   body.classList.remove('modal-open');
   countShow = 0
+  socialCommentsButton.classList.remove('hidden')
 }
 
 function onDocumentEscKeyDown (evt) {
