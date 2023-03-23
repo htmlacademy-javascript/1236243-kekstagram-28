@@ -26,12 +26,12 @@ const renderBigFoto = function () {
       const i = evt.target.closest('a').dataset.index;
       const allComments = pictures[i].comments
 
-      console.log(allComments)
-
       bigPictureImg.src = pictures[i].url;
       socialCaption.textContent = pictures[i].description;
       bigPictureLike.textContent = pictures[i].likes;
       bigPictureComment.textContent = pictures[i].comments.length;
+
+      
 
       const createComments = function  (dataComments) {
         socialComments.innerHTML = '';
@@ -39,12 +39,12 @@ const renderBigFoto = function () {
         dataComments.map((comment) => {
           commentsListFragment.appendChild(createComment(comment));
         });
-
+        
         return socialComments.appendChild(commentsListFragment);
       }
+      
 
       countShow += COMMENTS_PER_PORTION
-      console.log(countShow)
       
       if (allComments.length <= countShow) {
         socialCommentMin.textContent = allComments.length
@@ -63,11 +63,18 @@ const renderBigFoto = function () {
             socialCommentsButton.classList.add('hidden')
           }
         })
+    
 
       }
     }
   });
 };
+
+function onLoadComments () {
+  for (let i = 0; i < countShow; i++) {
+
+  }
+}
 
 
 closeButtonBigPicture.addEventListener('click', () => {
