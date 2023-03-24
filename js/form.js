@@ -26,7 +26,6 @@ function onOpenForm () {
   body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentEscKeyDown);
   onBlockEsc();
-  formUpload.addEventListener('submit', onFormSubmit)
 }
 
 function onCloseForm () {
@@ -76,7 +75,6 @@ pristine.addValidator(
   validateTags,
   'Неправильно заполнены хэштеги',
 );
-
 const onFormSubmit = function () {
   formUpload.addEventListener('submit', (evt) => {
     evt.preventDefault();
@@ -88,7 +86,9 @@ const onFormSubmit = function () {
     }
   });
 };
-
 buttonUpload.addEventListener('click', onOpenForm);
 buttonImgUploadCansel.addEventListener('click', onCloseForm);
 
+
+
+export {imgUpload, imjUploadPreveiw};
