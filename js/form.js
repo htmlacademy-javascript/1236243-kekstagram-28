@@ -9,6 +9,7 @@ const imgUpload = document.querySelector('.img-upload');
 const formUpload = document.querySelector('.img-upload__form');
 const imgUploadOverlay = document.querySelector('.img-upload__overlay');
 const buttonUpload = formUpload.querySelector('.img-upload__label');
+const imgUploadPreview = formUpload.querySelector('.img-upload__preview')
 const buttonImgUploadCansel = formUpload.querySelector('.img-upload__cancel');
 // const buttonImgUploadSubmit = formUpload.querySelector('#upload-submit');
 const imjUploadPreveiw = formUpload.querySelector('.img-upload__preview');
@@ -36,7 +37,7 @@ function onCloseForm () {
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentEscKeyDown);
   scaleControlValue.value = `${100}%`;
-  formUpload.removeAttribute('style');
+  imgUploadPreview.removeAttribute('style');
 }
 
 
