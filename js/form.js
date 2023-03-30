@@ -1,17 +1,16 @@
 import { isEscKey } from './util.js';
-
-const VALID_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i;
-const HASHTAG_MAX_COUNT = 5;
+import { validateTags } from './validate.js';
 
 const body = document.querySelector('body');
 const imgUpload = document.querySelector('.img-upload');
-const formUpload = document.querySelector('.img-upload__form');
+const formUpload = document.querySelector('#upload-select-image');
 const imgUploadOverlay = document.querySelector('.img-upload__overlay');
-const buttonUpload = formUpload.querySelector('.img-upload__label');
-const imgUploadPreview = formUpload.querySelector('.img-upload__preview');
+const buttonUpload = formUpload.querySelector('#upload-file');
+const divUploadPreview = formUpload.querySelector('.img-upload__preview');
+const imgUploadPreview = divUploadPreview.querySelector('img');
 const buttonImgUploadCansel = formUpload.querySelector('.img-upload__cancel');
 // const buttonImgUploadSubmit = formUpload.querySelector('#upload-submit');
-const imjUploadPreveiw = formUpload.querySelector('.img-upload__preview');
+// const imjUploadPreveiw = formUpload.querySelector('.img-upload__preview');
 const scaleControlValue = formUpload.querySelector('.scale__control--value');
 const commentTextDescription = formUpload.querySelector('.text__description');
 const hashtagTextField = formUpload.querySelector('.text__hashtags');
@@ -26,6 +25,7 @@ function onOpenForm () {
   body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentEscKeyDown);
   onBlockEsc();
+  formUpload.addEventListener('submit', onFormSubmit);
 }
 
 function onCloseForm () {
@@ -36,6 +36,8 @@ function onCloseForm () {
   scaleControlValue.value = `${100}%`;
   formUpload.removeAttribute('style');
   imgUploadPreview.removeAttribute('style');
+  formUpload.removeEventListener('submit', onFormSubmit);
+
 }
 
 function onDocumentEscKeyDown (evt) {
@@ -53,41 +55,23 @@ function onBlockEsc () {
   });
 }
 
-const hasValidCount = (hashtags) =>
-  hashtags.length <= HASHTAG_MAX_COUNT;
-
-const isValidTag = (tag) => VALID_SYMBOLS.test(tag);
-
-const hasUniqeTags = (tags) => {
-  const lowerCaseTags = tags.map((tag) => tag.toLowerCase());
-  return lowerCaseTags.length === new Set(lowerCaseTags).size;
-};
-
-const validateTags = (value) => {
-  const tags = value
-    .split(' ')
-    .filter((tag) => tag.trim().length);
-  return hasValidCount(tags) && hasUniqeTags(tags) && tags.every(isValidTag);
-};
 
 pristine.addValidator(
   hashtagTextField,
   validateTags,
   'Неправильно заполнены хэштеги',
 );
-const onFormSubmit = function () {
-  formUpload.addEventListener('submit', (evt) => {
+
+function onFormSubmit (evt) {
+  const isValid = pristine.validate();
+  if (isValid) {
     evt.preventDefault();
-    const isValid = pristine.validate();
-    if (isValid) {
-      console.log('Send');
-    } else {
-      console.log('Dont Send');
-    }
-  });
-};
-buttonUpload.addEventListener('click', onOpenForm);
+    onCloseForm();
+  }
+
+}
+buttonUpload.addEventListener('change', onOpenForm);
 buttonImgUploadCansel.addEventListener('click', onCloseForm);
+// formUpload.addEventListener('submit', onFormSubmit)
 
-
-export {imgUpload, imjUploadPreveiw};
+export {imgUpload, imgUploadPreview, onOpenForm, onCloseForm};

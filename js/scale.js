@@ -1,4 +1,4 @@
-import {imgUpload, imjUploadPreveiw} from './form.js';
+import {imgUpload, imgUploadPreview} from './form.js';
 
 const valueScale = imgUpload.querySelector('.scale__control--value');
 const buttonSmaller = imgUpload.querySelector('.scale__control--smaller');
@@ -17,7 +17,7 @@ const changeScaleMin = function () {
     if (newValue <= MIN_SCALE) {
       valueScale.value = `${MIN_SCALE}%`;
     }
-    imjUploadPreveiw.style.transform = `scale(${Number.parseInt(valueScale.value, 10) / 100})`;
+    imgUploadPreview.style.transform = `scale(${Number.parseInt(valueScale.value, 10) / 100})`;
   });
 
 };
@@ -30,7 +30,7 @@ const changeScaleMax = function () {
     if (newValue >= MAX_STEP) {
       valueScale.value = `${MAX_STEP}%`;
     }
-    imjUploadPreveiw.style.transform = `scale(${Number.parseInt(valueScale.value, 10) / 100})`;
+    imgUploadPreview.style.transform = `scale(${Number.parseInt(valueScale.value, 10) / 100})`;
   });
 
 };

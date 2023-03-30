@@ -31,8 +31,9 @@ const createComments = function (dataComments) {
 
 const renderBigFoto = function () {
   allPictures.addEventListener('click', (evt) => {
-    evt.preventDefault();
+
     if (evt.target.closest('a')) {
+      evt.preventDefault();
       onClickPicture();
       const i = evt.target.closest('a').dataset.index;
       allComments = pictures[i].comments;
@@ -52,6 +53,7 @@ const renderBigFoto = function () {
       }
       socialCommentsButton.addEventListener('click', addComments);
     }
+
   });
 };
 
