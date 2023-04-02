@@ -64,18 +64,19 @@ pristine.addValidator(
   'Неправильно заполнены хэштеги',
 );
 
-function onFormSubmit () {
+function onFormSubmit (evt) {
   const isValid = pristine.validate();
+  evt.preventDefault()
   if (isValid) {
-    // evt.preventDefault();
-    onCloseForm();
+    onCloseForm()
   } else {
-    resetEffect();
+    console.log('Dont Send')
   }
 
 }
 buttonUpload.addEventListener('change', onOpenForm);
 buttonImgUploadCansel.addEventListener('click', onCloseForm);
+
 
 
 export {imgUpload, imgUploadPreview, onOpenForm, onCloseForm};
