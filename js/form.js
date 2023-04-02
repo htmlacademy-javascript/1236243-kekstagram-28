@@ -1,6 +1,6 @@
 import { isEscKey } from './util.js';
 import { validateTags } from './validate.js';
-import { resetEffect } from './effect.js'
+import { resetEffect } from './effect.js';
 
 const body = document.querySelector('body');
 const imgUpload = document.querySelector('.img-upload');
@@ -30,7 +30,7 @@ function onOpenForm () {
 }
 
 function onCloseForm () {
-  resetEffect()
+  resetEffect();
   formUpload.reset();
   imgUploadOverlay.classList.add('hidden');
   body.classList.remove('modal-open');
@@ -64,16 +64,18 @@ pristine.addValidator(
   'Неправильно заполнены хэштеги',
 );
 
-function onFormSubmit (evt) {
-  // const isValid = pristine.validate();
-  // if (isValid) {
-  //   // evt.preventDefault();
-  //   onCloseForm();
-  // }
+function onFormSubmit () {
+  const isValid = pristine.validate();
+  if (isValid) {
+    // evt.preventDefault();
+    onCloseForm();
+  } else {
+    resetEffect();
+  }
 
 }
 buttonUpload.addEventListener('change', onOpenForm);
 buttonImgUploadCansel.addEventListener('click', onCloseForm);
-formUpload.addEventListener('submit', onFormSubmit)
+
 
 export {imgUpload, imgUploadPreview, onOpenForm, onCloseForm};

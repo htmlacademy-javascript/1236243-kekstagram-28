@@ -4,7 +4,6 @@ import { onOpenForm, onCloseForm } from './form.js';
 import { changeScaleMin, changeScaleMax } from './scale.js';
 
 
-
 renderMiniFoto();
 renderBigFoto();
 
