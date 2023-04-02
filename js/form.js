@@ -1,5 +1,6 @@
 import { isEscKey } from './util.js';
 import { validateTags } from './validate.js';
+import { resetEffect } from './effect.js'
 
 const body = document.querySelector('body');
 const imgUpload = document.querySelector('.img-upload');
@@ -29,6 +30,7 @@ function onOpenForm () {
 }
 
 function onCloseForm () {
+  resetEffect()
   formUpload.reset();
   imgUploadOverlay.classList.add('hidden');
   body.classList.remove('modal-open');
@@ -63,15 +65,15 @@ pristine.addValidator(
 );
 
 function onFormSubmit (evt) {
-  const isValid = pristine.validate();
-  if (isValid) {
-    evt.preventDefault();
-    onCloseForm();
-  }
+  // const isValid = pristine.validate();
+  // if (isValid) {
+  //   // evt.preventDefault();
+  //   onCloseForm();
+  // }
 
 }
 buttonUpload.addEventListener('change', onOpenForm);
 buttonImgUploadCansel.addEventListener('click', onCloseForm);
-// formUpload.addEventListener('submit', onFormSubmit)
+formUpload.addEventListener('submit', onFormSubmit)
 
 export {imgUpload, imgUploadPreview, onOpenForm, onCloseForm};
