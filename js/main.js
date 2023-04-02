@@ -1,14 +1,12 @@
-import { renderMiniFoto } from'./miniatures.js';
+import { renderMiniFoto} from'./miniatures.js';
 import { renderBigFoto } from './bigFoto.js';
-import { onOpenForm, onCloseForm } from './form.js';
-import { changeScaleMin, changeScaleMax } from './scale.js';
+import {setUserSubmit } from './form.js';
+import { getData } from './fetch.js';
+import { onClickCloseError, onClickCloseSuccess } from './message.js';
 
+getData(renderMiniFoto);
+getData(renderBigFoto);
 
-renderMiniFoto();
-renderBigFoto();
-
-onOpenForm();
-onCloseForm();
-
-changeScaleMin();
-changeScaleMax();
+onClickCloseError();
+onClickCloseSuccess();
+setUserSubmit();

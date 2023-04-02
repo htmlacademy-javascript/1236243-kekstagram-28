@@ -1,5 +1,6 @@
-import {imgUpload, imgUploadPreview} from './form.js';
+import {imgUploadPreview} from './form.js';
 
+const imgUpload = document.querySelector('.img-upload');
 const valueScale = imgUpload.querySelector('.scale__control--value');
 const buttonSmaller = imgUpload.querySelector('.scale__control--smaller');
 const buttonBigger = imgUpload.querySelector('.scale__control--bigger');

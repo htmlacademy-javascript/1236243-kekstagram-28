@@ -1,4 +1,4 @@
-import { allPictures, pictures} from './miniatures.js';
+import { allPictures} from './miniatures.js';
 import { isEscKey } from './util.js';
 import { createComment} from './create-comment.js';
 
@@ -29,19 +29,19 @@ const createComments = function (dataComments) {
   return socialComments.appendChild(commentsListFragment);
 };
 
-const renderBigFoto = function () {
+const renderBigFoto = function (dataPictures) {
   allPictures.addEventListener('click', (evt) => {
 
     if (evt.target.closest('a')) {
       evt.preventDefault();
       onClickPicture();
       const i = evt.target.closest('a').dataset.index;
-      allComments = pictures[i].comments;
+      allComments = dataPictures[i].comments;
 
-      bigPictureImg.src = pictures[i].url;
-      socialCaption.textContent = pictures[i].description;
-      bigPictureLike.textContent = pictures[i].likes;
-      bigPictureComment.textContent = pictures[i].comments.length;
+      bigPictureImg.src = dataPictures[i].url;
+      socialCaption.textContent = dataPictures[i].description;
+      bigPictureLike.textContent = dataPictures[i].likes;
+      bigPictureComment.textContent = dataPictures[i].comments.length;
 
       countShow = 0;
       addComments();
