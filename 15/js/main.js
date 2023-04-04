@@ -2,11 +2,11 @@ import { renderMiniFoto} from'./miniatures.js';
 import { renderBigFoto } from './bigFoto.js';
 import {setUserSubmit } from './form.js';
 import { getData } from './fetch.js';
-import { onClickCloseError, onClickCloseSuccess } from './message.js';
+import { showAlert } from'./message.js';
+
 
 getData(renderMiniFoto);
-getData(renderBigFoto);
+getData(renderBigFoto); 
 
-onClickCloseError();
-onClickCloseSuccess();
+
 setUserSubmit();
