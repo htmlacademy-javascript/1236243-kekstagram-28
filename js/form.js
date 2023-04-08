@@ -4,6 +4,7 @@ import { resetEffect } from './effect.js';
 import { changeScaleMin, changeScaleMax } from './scale.js';
 import { sendData } from './fetch.js';
 import { showError, showSuccess } from './message.js';
+import { changeURL } from './foto.js';
 
 const body = document.querySelector('body');
 const imgUpload = document.querySelector('.img-upload');
@@ -30,6 +31,7 @@ function onOpenForm () {
   onBlockEsc();
   changeScaleMin();
   changeScaleMax();
+  changeURL();
 }
 
 function onCloseForm () {
