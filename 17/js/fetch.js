@@ -7,13 +7,14 @@ const getData = (onSuccess) => {
       if (!response.ok) {
         throw new Error();
       }
-      return response.json()})
+      return response.json();
+    })
     .then((pictures) => {
       onSuccess(pictures);
     })
     .catch((err) => {
-      showAlert(err)
-    })
+      showAlert(err);
+    });
 };
 
 const sendData = (onSuccess, onFail, body) => {

@@ -9,13 +9,13 @@ import { debounce, showAlert} from './util.js';
 const RENDER_DELAY = 500;
 
 try {
-    getData((data) => {
-        renderMiniFoto(data);
-        filterPictures(debounce(renderMiniFoto, RENDER_DELAY), data);
-        renderBigFoto(data);
-        });
+  getData((data) => {
+    renderMiniFoto(data);
+    filterPictures(debounce(renderMiniFoto, RENDER_DELAY), data);
+    renderBigFoto(data);
+  });
 } catch (err) {
-    showAlert(err.message)
+  showAlert(err.message);
 }
 setUserSubmit();
 
