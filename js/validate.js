@@ -1,5 +1,3 @@
-
-
 const VALID_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i;
 const HASHTAG_MAX_COUNT = 5;
 
