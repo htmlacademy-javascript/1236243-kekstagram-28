@@ -44,5 +44,15 @@ function debounce (callback, timeoutDelay) {
   };
 }
 
+const showAlert = (message) => {
+  const alert = document.createElement('div');
+  alert.classList.add('alert');
+  alert.textContent = message;
+  document.body.append(alert);
 
-export {getRandomInteger, getRandomArrayElement, generateCommentId, isEscKey, compareComments, debounce};
+  setTimeout(() => {
+    alert.remove();
+  }, 5000);
+};
+
+export {getRandomInteger, getRandomArrayElement, generateCommentId, isEscKey, compareComments, debounce, showAlert};

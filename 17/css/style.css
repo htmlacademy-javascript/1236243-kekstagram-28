@@ -41,6 +41,17 @@ main {
   position: relative;
 }
 
+.alert{
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;right: 0;
+  padding: 30px;
+  text-align: center;
+  font-size: 30px;
+  background-color: red;
+}
+
 .content-box-component {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
