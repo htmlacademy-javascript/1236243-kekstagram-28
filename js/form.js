@@ -57,7 +57,7 @@ function onBlockEsc () {
     if(evt.key === 'Escape') {
       evt.stopPropagation();
     }
-  })
+  });
   hashtagTextField.addEventListener('keydown', (evt) => {
     if(evt.key === 'Escape') {
       evt.stopPropagation();

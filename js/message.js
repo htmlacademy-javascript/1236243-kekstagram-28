@@ -15,55 +15,51 @@ function closeErrorEsc (evt) {
     evt.preventDefault();
     document.addEventListener('keydown', onDocumentEscKeyDown);
     error.remove();
-    
+
   }
 }
 
 function closeSuccessEsc (evt) {
-    if (isEscKey(evt)) {
-        success.remove();
-        onCloseForm();
-      }
+  if (isEscKey(evt)) {
+    success.remove();
+    onCloseForm();
+  }
 }
 
 const onClickCloseModal = (evt) => {
-    if (evt.target.matches('.success')) {
-      document.querySelector('.success').remove();
-      onCloseForm();
-    }
-    if (evt.target.matches('.error')) {
-      document.querySelector('.error').remove();
-    }
-  };
+  if (evt.target.matches('.success')) {
+    document.querySelector('.success').remove();
+    onCloseForm();
+  }
+  if (evt.target.matches('.error')) {
+    document.querySelector('.error').remove();
+  }
+};
 
 const closeErrorMessage = () => {
-    document.querySelector('.error').remove();
-}
+  document.querySelector('.error').remove();
+};
 
 const showError = function () {
-    document.body.append(error);
-    const errorMessage = document.querySelector('.error');
-    errorMessage.addEventListener('click', onClickCloseModal)
-    errorButton.addEventListener('click', closeErrorMessage)
-    document.removeEventListener('keydown', onDocumentEscKeyDown);
-    document.addEventListener('keydown', closeErrorEsc);
+  document.body.append(error);
+  const errorMessage = document.querySelector('.error');
+  errorMessage.addEventListener('click', onClickCloseModal);
+  errorButton.addEventListener('click', closeErrorMessage);
+  document.removeEventListener('keydown', onDocumentEscKeyDown);
+  document.addEventListener('keydown', closeErrorEsc);
 };
 
 const closeSuccessMessage = () => {
-    document.querySelector('.success').remove();
-}
+  document.querySelector('.success').remove();
+};
 
 const showSuccess = function () {
   document.body.append(success);
   const successMessage = document.querySelector('.success');
-  successMessage.addEventListener('click', onClickCloseModal)
-  successButton.addEventListener('click', closeSuccessMessage)
+  successMessage.addEventListener('click', onClickCloseModal);
+  successButton.addEventListener('click', closeSuccessMessage);
   document.removeEventListener('keydown', onDocumentEscKeyDown);
   document.addEventListener('keydown', closeSuccessEsc);
 };
 
-
-const showAlert = (err) => {
-  };
-
-export {showError, showSuccess, showAlert };
+export {showError, showSuccess};

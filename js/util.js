@@ -23,8 +23,8 @@ const generateCommentId = createIdGenerator();
 const isEscKey = (evt) => evt.key === 'Escape';
 
 const compareComments = function (commentA, commentB) {
-  return commentB.comments.length - commentA.comments.length
-}
+  return commentB.comments.length - commentA.comments.length;
+};
 
 function debounce (callback, timeoutDelay) {
   // Используем замыкания, чтобы id таймаута у нас навсегда приклеился
