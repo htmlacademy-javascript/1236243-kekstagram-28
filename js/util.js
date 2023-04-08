@@ -21,6 +21,28 @@ const getRandomArrayElement = (array) => array[getRandomInteger(0, array.length 
 const generateCommentId = createIdGenerator();
 
 const isEscKey = (evt) => evt.key === 'Escape';
-const isEnterKey = (evt) => evt.key === 'Enter';
 
-export {getRandomInteger, getRandomArrayElement, generateCommentId, isEscKey, isEnterKey};
+const compareComments = function (commentA, commentB) {
+  return commentB.comments.length - commentA.comments.length
+}
+
+function debounce (callback, timeoutDelay) {
+  // Используем замыкания, чтобы id таймаута у нас навсегда приклеился
+  // к возвращаемой функции с setTimeout, тогда мы его сможем перезаписывать
+  let timeoutId;
+
+  return (...rest) => {
+    // Перед каждым новым вызовом удаляем предыдущий таймаут,
+    // чтобы они не накапливались
+    clearTimeout(timeoutId);
+
+    // Затем устанавливаем новый таймаут с вызовом колбэка на ту же задержку
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+
+    // Таким образом цикл «поставить таймаут - удалить таймаут» будет выполняться,
+    // пока действие совершается чаще, чем переданная задержка timeoutDelay
+  };
+}
+
+
+export {getRandomInteger, getRandomArrayElement, generateCommentId, isEscKey, compareComments, debounce};
