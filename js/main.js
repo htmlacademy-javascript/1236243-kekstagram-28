@@ -1,12 +1,17 @@
 import { renderMiniFoto} from'./miniatures.js';
 import { renderBigFoto } from './bigFoto.js';
-import {setUserSubmit } from './form.js';
+import {setUserSubmit} from './form.js';
 import { getData } from './fetch.js';
-import { showAlert } from'./message.js';
+import { filterPictures } from './filters.js';
+import { debounce } from './util.js';
 
+const RENDER_DELAY = 500;
 
-getData(renderMiniFoto);
-getData(renderBigFoto); 
+getData((data) => {
+  renderMiniFoto(data);
+  filterPictures(debounce(renderMiniFoto, RENDER_DELAY), data);
+  renderBigFoto(data);
+});
 
 
 setUserSubmit();
