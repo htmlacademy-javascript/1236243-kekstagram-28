@@ -52,10 +52,8 @@ const renderBigFoto = function (dataPictures) {
       }
       socialCommentsButton.addEventListener('click', addComments);
     }
-
   });
 };
-
 
 closeButtonBigPicture.addEventListener('click', () => {
   onClosePicture();

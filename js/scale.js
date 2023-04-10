@@ -9,7 +9,6 @@ const STEP = 25;
 const MIN_SCALE = 25;
 const MAX_STEP = 100;
 
-
 const changeScaleMin = function () {
   buttonSmaller.addEventListener('click', () => {
     const currentValue = Number.parseInt(valueScale.value, 10);
@@ -20,7 +19,6 @@ const changeScaleMin = function () {
     }
     imgUploadPreview.style.transform = `scale(${Number.parseInt(valueScale.value, 10) / 100})`;
   });
-
 };
 
 const changeScaleMax = function () {
@@ -33,7 +31,6 @@ const changeScaleMax = function () {
     }
     imgUploadPreview.style.transform = `scale(${Number.parseInt(valueScale.value, 10) / 100})`;
   });
-
 };
 
 export {changeScaleMin, changeScaleMax};

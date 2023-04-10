@@ -35,7 +35,6 @@ function onOpenForm () {
 }
 
 function onCloseForm () {
-
   formUpload.reset();
   imgUploadOverlay.classList.add('hidden');
   body.classList.remove('modal-open');
@@ -67,13 +66,11 @@ function onBlockEsc () {
   });
 }
 
-
 pristine.addValidator(
   hashtagTextField,
   validateTags,
   'Неправильно заполнены хэштеги',
 );
-
 
 const blockSubmitButton = () => {
   submitButton.disabled = true;

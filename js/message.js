@@ -9,13 +9,12 @@ const success = templateSuccessElement.cloneNode(true);
 const errorButton = error.querySelector('.error__button');
 const successButton = success.querySelector('.success__button');
 
-
 function closeErrorEsc (evt) {
   if (isEscKey(evt)) {
     evt.preventDefault();
     document.addEventListener('keydown', onDocumentEscKeyDown);
     error.remove();
-
+    document.removeEventListener('keydown', closeErrorEsc);
   }
 }
 
@@ -23,25 +22,26 @@ function closeSuccessEsc (evt) {
   if (isEscKey(evt)) {
     success.remove();
     onCloseForm();
-    document.removeEventListener('click', closeSuccessEsc);
+    document.removeEventListener('keydown', closeSuccessEsc);
   }
 }
 
 const onClickCloseModal = (evt) => {
   if (evt.target.matches('.success')) {
     document.querySelector('.success').remove();
-    document.removeEventListener('click', closeSuccessEsc);
+    document.removeEventListener('keydown', closeSuccessEsc);
     onCloseForm();
   }
   if (evt.target.matches('.error')) {
     document.querySelector('.error').remove();
-    document.removeEventListener('click', closeErrorEsc);
+    document.removeEventListener('keydown', closeErrorEsc);
+    document.addEventListener('keydown', onDocumentEscKeyDown);
   }
 };
 
 const closeErrorMessage = () => {
   document.querySelector('.error').remove();
-  document.removeEventListener('click', closeErrorEsc);
+  document.removeEventListener('keydown', closeErrorEsc);
 };
 
 const showError = function () {
@@ -55,7 +55,7 @@ const showError = function () {
 
 const closeSuccessMessage = () => {
   document.querySelector('.success').remove();
-
+  document.removeEventListener('keydown', closeSuccessEsc);
 };
 
 const showSuccess = function () {
@@ -68,4 +68,4 @@ const showSuccess = function () {
   document.addEventListener('keydown', closeSuccessEsc);
 };
 
-export {showError, showSuccess};
+export {showError, showSuccess, closeSuccessEsc};

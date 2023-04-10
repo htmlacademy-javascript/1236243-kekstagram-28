@@ -8,7 +8,6 @@ const sliderElement = document.querySelector('.effect-level__slider');
 const divUploadPreview = document.querySelector('.img-upload__preview');
 const imgUploadPreview = divUploadPreview.querySelector('img');
 
-
 const DEFAULT_EFFECT = EFFECTS[0];
 
 let chosenEffect = DEFAULT_EFFECT;
@@ -37,7 +36,6 @@ const updateSlider = () => {
     showSlider();
   }
 };
-
 
 const onEffectClick = function (evt) {
   if(!evt.target.classList.contains('effects__radio')) {
