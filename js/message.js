@@ -9,7 +9,6 @@ const success = templateSuccessElement.cloneNode(true);
 const errorButton = error.querySelector('.error__button');
 const successButton = success.querySelector('.success__button');
 
-
 function closeErrorEsc (evt) {
   if (isEscKey(evt)) {
     evt.preventDefault();

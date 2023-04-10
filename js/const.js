@@ -1,6 +1,5 @@
 const FOTOS = 25;
 
-
 const EFFECTS = [
   {
     name: 'none',

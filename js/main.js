@@ -18,4 +18,3 @@ try {
   showAlert(err.message);
 }
 setUserSubmit();
-

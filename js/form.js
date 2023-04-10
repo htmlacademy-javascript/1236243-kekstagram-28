@@ -44,7 +44,6 @@ function onCloseForm () {
   imgUploadPreview.removeAttribute('style');
   imgUploadPreview.className = '';
   resetEffect();
-
 }
 
 function onDocumentEscKeyDown (evt) {
@@ -67,13 +66,11 @@ function onBlockEsc () {
   });
 }
 
-
 pristine.addValidator(
   hashtagTextField,
   validateTags,
   'Неправильно заполнены хэштеги',
 );
-
 
 const blockSubmitButton = () => {
   submitButton.disabled = true;

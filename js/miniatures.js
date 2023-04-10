@@ -15,11 +15,8 @@ const renderMiniFoto = function (dataPictures) {
       pictureElement.querySelector('.picture__likes').textContent = picture.likes;
       pictureElement.dataset.index = picture.id;
       picturesFragment.appendChild(pictureElement);
-
     });
-
   allPictures.appendChild(picturesFragment);
-
 };
 
 export {renderMiniFoto, allPictures};
