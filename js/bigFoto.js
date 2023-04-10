@@ -37,7 +37,6 @@ const renderBigFoto = function (dataPictures) {
       onClickPicture();
       const i = evt.target.closest('a').dataset.index;
       allComments = dataPictures[i].comments;
-
       bigPictureImg.src = dataPictures[i].url;
       socialCaption.textContent = dataPictures[i].description;
       bigPictureLike.textContent = dataPictures[i].likes;

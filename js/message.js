@@ -23,21 +23,25 @@ function closeSuccessEsc (evt) {
   if (isEscKey(evt)) {
     success.remove();
     onCloseForm();
+    document.removeEventListener('click', closeSuccessEsc);
   }
 }
 
 const onClickCloseModal = (evt) => {
   if (evt.target.matches('.success')) {
     document.querySelector('.success').remove();
+    document.removeEventListener('click', closeSuccessEsc);
     onCloseForm();
   }
   if (evt.target.matches('.error')) {
     document.querySelector('.error').remove();
+    document.removeEventListener('click', closeErrorEsc);
   }
 };
 
 const closeErrorMessage = () => {
   document.querySelector('.error').remove();
+  document.removeEventListener('click', closeErrorEsc);
 };
 
 const showError = function () {
@@ -51,9 +55,11 @@ const showError = function () {
 
 const closeSuccessMessage = () => {
   document.querySelector('.success').remove();
+
 };
 
 const showSuccess = function () {
+  onCloseForm();
   document.body.append(success);
   const successMessage = document.querySelector('.success');
   successMessage.addEventListener('click', onClickCloseModal);
