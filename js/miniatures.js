@@ -5,7 +5,7 @@ const pictureTemplate = document.querySelector('#picture') // находим ш�
   .querySelector('.picture');
 
 const renderMiniFoto = function (dataPictures) {
-  allPictures.querySelectorAll('.picture').forEach((element) => element.remove())
+  allPictures.querySelectorAll('.picture').forEach((element) => element.remove());
   const picturesFragment = document.createDocumentFragment();
   dataPictures
     .forEach((picture) => {
@@ -17,7 +17,7 @@ const renderMiniFoto = function (dataPictures) {
       picturesFragment.appendChild(pictureElement);
 
     });
-  
+
   allPictures.appendChild(picturesFragment);
 
 };
