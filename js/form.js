@@ -3,7 +3,7 @@ import { validateTags } from './validate.js';
 import { resetEffect } from './effect.js';
 import { changeScaleMin, changeScaleMax } from './scale.js';
 import { sendData } from './fetch.js';
-import { closeSuccessEsc, showError, showSuccess } from './message.js';
+import { showError, showSuccess } from './message.js';
 import { changeURL } from './foto.js';
 
 const body = document.querySelector('body');
@@ -44,7 +44,7 @@ function onCloseForm () {
   imgUploadPreview.removeAttribute('style');
   imgUploadPreview.className = '';
   resetEffect();
-  
+
 }
 
 function onDocumentEscKeyDown (evt) {

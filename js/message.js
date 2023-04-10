@@ -36,7 +36,7 @@ const onClickCloseModal = (evt) => {
   if (evt.target.matches('.error')) {
     document.querySelector('.error').remove();
     document.removeEventListener('keydown', closeErrorEsc);
-    document.addEventListener('keydown', onDocumentEscKeyDown)
+    document.addEventListener('keydown', onDocumentEscKeyDown);
   }
 };
 
