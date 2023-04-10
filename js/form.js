@@ -3,7 +3,7 @@ import { validateTags } from './validate.js';
 import { resetEffect } from './effect.js';
 import { changeScaleMin, changeScaleMax } from './scale.js';
 import { sendData } from './fetch.js';
-import { showError, showSuccess } from './message.js';
+import { closeSuccessEsc, showError, showSuccess } from './message.js';
 import { changeURL } from './foto.js';
 
 const body = document.querySelector('body');
@@ -35,7 +35,6 @@ function onOpenForm () {
 }
 
 function onCloseForm () {
-
   formUpload.reset();
   imgUploadOverlay.classList.add('hidden');
   body.classList.remove('modal-open');
@@ -45,6 +44,7 @@ function onCloseForm () {
   imgUploadPreview.removeAttribute('style');
   imgUploadPreview.className = '';
   resetEffect();
+  
 }
 
 function onDocumentEscKeyDown (evt) {
